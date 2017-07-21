@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JCRoutable_Example' do
+  pod 'JCRoutable', :path => '../'
+
+  target 'JCRoutable_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
