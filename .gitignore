@@ -32,3 +32,5 @@ Carthage
 #
 Pods/
 Podfile.lock
+*.xcodeproj
+*.yml
