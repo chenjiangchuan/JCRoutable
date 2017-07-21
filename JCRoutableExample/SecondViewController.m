@@ -7,7 +7,7 @@
 //
 
 #import "SecondViewController.h"
-#import <JCRoutable/Routable.h>
+#import "Routable.h"
 
 @interface SecondViewController () 
 

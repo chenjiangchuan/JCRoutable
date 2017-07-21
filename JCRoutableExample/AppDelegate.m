@@ -1,20 +1,24 @@
 //
-//  JCAppDelegate.m
-//  JCRoutable
+//  AppDelegate.m
+//  JCRoutableExample
 //
-//  Created by chenjiangchuan on 07/21/2017.
-//  Copyright (c) 2017 chenjiangchuan. All rights reserved.
+//  Created by chenjiangchuan on 2017/7/21.
+//  Copyright © 2017年 Personal. All rights reserved.
 //
 
-#import "JCAppDelegate.h"
+#import "AppDelegate.h"
 #import "TabBarController.h"
 #import "JCLoginViewController.h"
-#import <JCRoutable/Routable.h>
+#import "Routable.h"
 
-@implementation JCAppDelegate
+@interface AppDelegate ()
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+@end
+
+@implementation AppDelegate
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     // 1
@@ -31,7 +35,7 @@
         self.window.rootViewController = nc;
     }
     [self.window makeKeyAndVisible];
-
+    
     return YES;
 }
 

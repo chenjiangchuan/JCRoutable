@@ -7,7 +7,7 @@
 //
 
 #import "JCLoginViewController.h"
-#import <JCRoutable/Routable.h>
+#import "Routable.h"
 #import "ViewControllersMapKey.h"
 #import "TabBarController.h"
 
