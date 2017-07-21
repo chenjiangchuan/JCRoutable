@@ -119,7 +119,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     
     这样ViewController1跳转ViewController2，则由NavigationController1负责；反过来ViewController2跳转ViewController1，则由NavigationController2负责。
 
-    > 所有JCRoutable不需要手动配置Routable.navigationController，它会根据当前所在的Controller做对应的处理。
+    > JCRoutable不需要手动配置Routable.navigationController，它会根据当前所在的Controller做对应的处理。
 
 3. 逆向传值
 
