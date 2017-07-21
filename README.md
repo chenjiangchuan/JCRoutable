@@ -1,6 +1,5 @@
 # JCRoutable
 
-[![CI Status](http://img.shields.io/travis/chenjiangchuan/JCRoutable.svg?style=flat)](https://travis-ci.org/chenjiangchuan/JCRoutable)
 [![Version](https://img.shields.io/cocoapods/v/JCRoutable.svg?style=flat)](http://cocoapods.org/pods/JCRoutable)
 [![License](https://img.shields.io/cocoapods/l/JCRoutable.svg?style=flat)](http://cocoapods.org/pods/JCRoutable)
 [![Platform](https://img.shields.io/cocoapods/p/JCRoutable.svg?style=flat)](http://cocoapods.org/pods/JCRoutable)
@@ -64,6 +63,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 2. 原Routable框架需要手动设置navigationController
 
     ```
+    // JCRoutable不要设置
     [[Routable sharedRouter] setNavigationController:aNavigationController];
     ```
     
@@ -119,7 +119,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     
     这样ViewController1跳转ViewController2，则由NavigationController1负责；反过来ViewController2跳转ViewController1，则由NavigationController2负责。
 
-    所有Routable-ReverseValue不需要手动配置Routable.navigationController，它会根据当前所在的Controller做对应的处理。
+    > 所有JCRoutable不需要手动配置Routable.navigationController，它会根据当前所在的Controller做对应的处理。
 
 3. 逆向传值
 
