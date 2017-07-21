@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'JCRoutable'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of JCRoutable.'
+  s.summary          = 'Development based Routable.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?

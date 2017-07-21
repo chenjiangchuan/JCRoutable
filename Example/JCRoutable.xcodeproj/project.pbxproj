@@ -13,7 +13,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* JCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* JCAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* JCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* JCViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -21,8 +20,15 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B746344A557A722346313086 /* Pods_JCRoutable_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEDCC29BA5C8DF1663DBF3F /* Pods_JCRoutable_Example.framework */; };
+		D63FC5921F21A0180069B06A /* RoutableConfigure.plist in Resources */ = {isa = PBXBuildFile; fileRef = D63FC5901F21A0180069B06A /* RoutableConfigure.plist */; };
+		D63FC59D1F21A06B0069B06A /* JCView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63FC5941F21A06B0069B06A /* JCView.m */; };
+		D63FC59E1F21A06B0069B06A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63FC5961F21A06B0069B06A /* SecondViewController.m */; };
+		D63FC59F1F21A06B0069B06A /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63FC5981F21A06B0069B06A /* TabBarController.m */; };
+		D63FC5A01F21A06B0069B06A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63FC59A1F21A06B0069B06A /* ThirdViewController.m */; };
+		D63FC5A11F21A06B0069B06A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63FC59C1F21A06B0069B06A /* ViewController.m */; };
+		D63FC5A51F21A1530069B06A /* JCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63FC5A31F21A1530069B06A /* JCLoginViewController.m */; };
+		D63FC5A61F21A1530069B06A /* JCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63FC5A41F21A1530069B06A /* JCLoginViewController.xib */; };
 		F30CB4428D73AD10C483AA87 /* Pods_JCRoutable_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07F76FFE7790FF5FCA94986 /* Pods_JCRoutable_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		120DA474517F112961CA6453 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		20EF9EE77DA9D8EE8A4C588F /* JCRoutable.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = JCRoutable.podspec; path = ../JCRoutable.podspec; sourceTree = "<group>"; };
+		120DA474517F112961CA6453 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		20EF9EE77DA9D8EE8A4C588F /* JCRoutable.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JCRoutable.podspec; path = ../JCRoutable.podspec; sourceTree = "<group>"; };
 		4790377E6A1D1A172941C70B /* Pods-JCRoutable_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCRoutable_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JCRoutable_Example/Pods-JCRoutable_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JCRoutable_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCRoutable_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,8 +56,6 @@
 		6003F59B195388D20070C39A /* JCRoutable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JCRoutable-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* JCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* JCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* JCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* JCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* JCRoutable_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCRoutable_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -60,13 +64,27 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B712737107A4447C31D07E2E /* Pods-JCRoutable_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCRoutable_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JCRoutable_Example/Pods-JCRoutable_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B8E2C888A8D0BE6936DD4751 /* Pods-JCRoutable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCRoutable_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JCRoutable_Tests/Pods-JCRoutable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BB96F7323A6518E89268302E /* Pods-JCRoutable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCRoutable_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JCRoutable_Tests/Pods-JCRoutable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CEEDCC29BA5C8DF1663DBF3F /* Pods_JCRoutable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JCRoutable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07F76FFE7790FF5FCA94986 /* Pods_JCRoutable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JCRoutable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E87A11DE470B41DCD38B08A4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D63FC5901F21A0180069B06A /* RoutableConfigure.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RoutableConfigure.plist; sourceTree = "<group>"; };
+		D63FC5911F21A0180069B06A /* ViewControllersMapKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllersMapKey.h; sourceTree = "<group>"; };
+		D63FC5931F21A06B0069B06A /* JCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCView.h; sourceTree = "<group>"; };
+		D63FC5941F21A06B0069B06A /* JCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCView.m; sourceTree = "<group>"; };
+		D63FC5951F21A06B0069B06A /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		D63FC5961F21A06B0069B06A /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		D63FC5971F21A06B0069B06A /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		D63FC5981F21A06B0069B06A /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		D63FC5991F21A06B0069B06A /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		D63FC59A1F21A06B0069B06A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		D63FC59B1F21A06B0069B06A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D63FC59C1F21A06B0069B06A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D63FC5A21F21A1530069B06A /* JCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCLoginViewController.h; sourceTree = "<group>"; };
+		D63FC5A31F21A1530069B06A /* JCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCLoginViewController.m; sourceTree = "<group>"; };
+		D63FC5A41F21A1530069B06A /* JCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JCLoginViewController.xib; sourceTree = "<group>"; };
+		E87A11DE470B41DCD38B08A4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,11 +152,21 @@
 			children = (
 				6003F59C195388D20070C39A /* JCAppDelegate.h */,
 				6003F59D195388D20070C39A /* JCAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* JCViewController.h */,
-				6003F5A6195388D20070C39A /* JCViewController.m */,
-				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
+				D63FC5A21F21A1530069B06A /* JCLoginViewController.h */,
+				D63FC5A31F21A1530069B06A /* JCLoginViewController.m */,
+				D63FC5A41F21A1530069B06A /* JCLoginViewController.xib */,
+				D63FC5931F21A06B0069B06A /* JCView.h */,
+				D63FC5941F21A06B0069B06A /* JCView.m */,
+				D63FC5951F21A06B0069B06A /* SecondViewController.h */,
+				D63FC5961F21A06B0069B06A /* SecondViewController.m */,
+				D63FC5971F21A06B0069B06A /* TabBarController.h */,
+				D63FC5981F21A06B0069B06A /* TabBarController.m */,
+				D63FC5991F21A06B0069B06A /* ThirdViewController.h */,
+				D63FC59A1F21A06B0069B06A /* ThirdViewController.m */,
+				D63FC59B1F21A06B0069B06A /* ViewController.h */,
+				D63FC59C1F21A06B0069B06A /* ViewController.m */,
+				D63FC5901F21A0180069B06A /* RoutableConfigure.plist */,
+				D63FC5911F21A0180069B06A /* ViewControllersMapKey.h */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for JCRoutable";
@@ -148,6 +176,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* JCRoutable-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -279,8 +309,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				D63FC5921F21A0180069B06A /* RoutableConfigure.plist in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				D63FC5A61F21A1530069B06A /* JCLoginViewController.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -394,9 +425,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63FC5A11F21A06B0069B06A /* ViewController.m in Sources */,
+				D63FC59E1F21A06B0069B06A /* SecondViewController.m in Sources */,
 				6003F59E195388D20070C39A /* JCAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* JCViewController.m in Sources */,
+				D63FC5A01F21A06B0069B06A /* ThirdViewController.m in Sources */,
+				D63FC59F1F21A06B0069B06A /* TabBarController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				D63FC59D1F21A06B0069B06A /* JCView.m in Sources */,
+				D63FC5A51F21A1530069B06A /* JCLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
