@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D65D536B1F35673200E273AD /* NSObject+ReverseValue.m in Sources */ = {isa = PBXBuildFile; fileRef = D65D53641F35673200E273AD /* NSObject+ReverseValue.m */; };
+		D65D536C1F35673200E273AD /* Routable.m in Sources */ = {isa = PBXBuildFile; fileRef = D65D53661F35673200E273AD /* Routable.m */; };
+		D65D536D1F35673200E273AD /* UIViewController+UnRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = D65D53681F35673200E273AD /* UIViewController+UnRegister.m */; };
+		D65D536E1F35673200E273AD /* UIViewController+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D65D536A1F35673200E273AD /* UIViewController+Utils.m */; };
+		D6D728A91F356631000B9126 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728A81F356631000B9126 /* main.m */; };
+		D6D728B41F356631000B9126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D728B31F356631000B9126 /* Assets.xcassets */; };
+		D6D728B71F356631000B9126 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D728B51F356631000B9126 /* LaunchScreen.storyboard */; };
+		D6D728C21F356631000B9126 /* JCRoutableExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728C11F356631000B9126 /* JCRoutableExampleTests.m */; };
+		D6D728CD1F356631000B9126 /* JCRoutableExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728CC1F356631000B9126 /* JCRoutableExampleUITests.m */; };
+		D6D728EC1F3566A5000B9126 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728DB1F3566A5000B9126 /* AppDelegate.m */; };
+		D6D728ED1F3566A5000B9126 /* JCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728DD1F3566A5000B9126 /* JCLoginViewController.m */; };
+		D6D728EE1F3566A5000B9126 /* JCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6D728DE1F3566A5000B9126 /* JCLoginViewController.xib */; };
+		D6D728EF1F3566A5000B9126 /* JCView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728E01F3566A5000B9126 /* JCView.m */; };
+		D6D728F11F3566A5000B9126 /* RoutableConfigure.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6D728E21F3566A5000B9126 /* RoutableConfigure.plist */; };
+		D6D728F21F3566A5000B9126 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728E41F3566A5000B9126 /* SecondViewController.m */; };
+		D6D728F31F3566A5000B9126 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728E61F3566A5000B9126 /* TabBarController.m */; };
+		D6D728F41F3566A5000B9126 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728E81F3566A5000B9126 /* ThirdViewController.m */; };
+		D6D728F51F3566A5000B9126 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728EA1F3566A5000B9126 /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6D728BE1F356631000B9126 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6D7289C1F356631000B9126 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6D728A31F356631000B9126;
+			remoteInfo = JCRoutableExample;
+		};
+		D6D728C91F356631000B9126 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6D7289C1F356631000B9126 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6D728A31F356631000B9126;
+			remoteInfo = JCRoutableExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D65D53621F35673200E273AD /* JCReverseValueProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCReverseValueProtocol.h; sourceTree = "<group>"; };
+		D65D53631F35673200E273AD /* NSObject+ReverseValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ReverseValue.h"; sourceTree = "<group>"; };
+		D65D53641F35673200E273AD /* NSObject+ReverseValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ReverseValue.m"; sourceTree = "<group>"; };
+		D65D53651F35673200E273AD /* Routable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routable.h; sourceTree = "<group>"; };
+		D65D53661F35673200E273AD /* Routable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routable.m; sourceTree = "<group>"; };
+		D65D53671F35673200E273AD /* UIViewController+UnRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UnRegister.h"; sourceTree = "<group>"; };
+		D65D53681F35673200E273AD /* UIViewController+UnRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UnRegister.m"; sourceTree = "<group>"; };
+		D65D53691F35673200E273AD /* UIViewController+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utils.h"; sourceTree = "<group>"; };
+		D65D536A1F35673200E273AD /* UIViewController+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utils.m"; sourceTree = "<group>"; };
+		D6D728A41F356631000B9126 /* JCRoutableExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCRoutableExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D728A81F356631000B9126 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D6D728B31F356631000B9126 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D6D728B61F356631000B9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D6D728B81F356631000B9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6D728BD1F356631000B9126 /* JCRoutableExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCRoutableExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D728C11F356631000B9126 /* JCRoutableExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCRoutableExampleTests.m; sourceTree = "<group>"; };
+		D6D728C31F356631000B9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6D728C81F356631000B9126 /* JCRoutableExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCRoutableExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D728CC1F356631000B9126 /* JCRoutableExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCRoutableExampleUITests.m; sourceTree = "<group>"; };
+		D6D728CE1F356631000B9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6D728DA1F3566A5000B9126 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D6D728DB1F3566A5000B9126 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D6D728DC1F3566A5000B9126 /* JCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCLoginViewController.h; sourceTree = "<group>"; };
+		D6D728DD1F3566A5000B9126 /* JCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCLoginViewController.m; sourceTree = "<group>"; };
+		D6D728DE1F3566A5000B9126 /* JCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JCLoginViewController.xib; sourceTree = "<group>"; };
+		D6D728DF1F3566A5000B9126 /* JCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCView.h; sourceTree = "<group>"; };
+		D6D728E01F3566A5000B9126 /* JCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCView.m; sourceTree = "<group>"; };
+		D6D728E21F3566A5000B9126 /* RoutableConfigure.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RoutableConfigure.plist; sourceTree = "<group>"; };
+		D6D728E31F3566A5000B9126 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		D6D728E41F3566A5000B9126 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		D6D728E51F3566A5000B9126 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		D6D728E61F3566A5000B9126 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		D6D728E71F3566A5000B9126 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		D6D728E81F3566A5000B9126 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		D6D728E91F3566A5000B9126 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D6D728EA1F3566A5000B9126 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D6D728EB1F3566A5000B9126 /* ViewControllersMapKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllersMapKey.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D6D728A11F356631000B9126 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D728BA1F356631000B9126 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D728C51F356631000B9126 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D65D53611F35673200E273AD /* JCRoutable */ = {
+			isa = PBXGroup;
+			children = (
+				D65D53621F35673200E273AD /* JCReverseValueProtocol.h */,
+				D65D53631F35673200E273AD /* NSObject+ReverseValue.h */,
+				D65D53641F35673200E273AD /* NSObject+ReverseValue.m */,
+				D65D53651F35673200E273AD /* Routable.h */,
+				D65D53661F35673200E273AD /* Routable.m */,
+				D65D53671F35673200E273AD /* UIViewController+UnRegister.h */,
+				D65D53681F35673200E273AD /* UIViewController+UnRegister.m */,
+				D65D53691F35673200E273AD /* UIViewController+Utils.h */,
+				D65D536A1F35673200E273AD /* UIViewController+Utils.m */,
+			);
+			path = JCRoutable;
+			sourceTree = SOURCE_ROOT;
+		};
+		D6D7289B1F356631000B9126 = {
+			isa = PBXGroup;
+			children = (
+				D6D728A61F356631000B9126 /* JCRoutableExample */,
+				D6D728C01F356631000B9126 /* JCRoutableExampleTests */,
+				D6D728CB1F356631000B9126 /* JCRoutableExampleUITests */,
+				D6D728A51F356631000B9126 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D6D728A51F356631000B9126 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6D728A41F356631000B9126 /* JCRoutableExample.app */,
+				D6D728BD1F356631000B9126 /* JCRoutableExampleTests.xctest */,
+				D6D728C81F356631000B9126 /* JCRoutableExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6D728A61F356631000B9126 /* JCRoutableExample */ = {
+			isa = PBXGroup;
+			children = (
+				D65D53611F35673200E273AD /* JCRoutable */,
+				D6D728DA1F3566A5000B9126 /* AppDelegate.h */,
+				D6D728DB1F3566A5000B9126 /* AppDelegate.m */,
+				D6D728DC1F3566A5000B9126 /* JCLoginViewController.h */,
+				D6D728DD1F3566A5000B9126 /* JCLoginViewController.m */,
+				D6D728DE1F3566A5000B9126 /* JCLoginViewController.xib */,
+				D6D728DF1F3566A5000B9126 /* JCView.h */,
+				D6D728E01F3566A5000B9126 /* JCView.m */,
+				D6D728E21F3566A5000B9126 /* RoutableConfigure.plist */,
+				D6D728E31F3566A5000B9126 /* SecondViewController.h */,
+				D6D728E41F3566A5000B9126 /* SecondViewController.m */,
+				D6D728E51F3566A5000B9126 /* TabBarController.h */,
+				D6D728E61F3566A5000B9126 /* TabBarController.m */,
+				D6D728E71F3566A5000B9126 /* ThirdViewController.h */,
+				D6D728E81F3566A5000B9126 /* ThirdViewController.m */,
+				D6D728E91F3566A5000B9126 /* ViewController.h */,
+				D6D728EA1F3566A5000B9126 /* ViewController.m */,
+				D6D728EB1F3566A5000B9126 /* ViewControllersMapKey.h */,
+				D6D728A71F356631000B9126 /* Supporting Files */,
+			);
+			path = JCRoutableExample;
+			sourceTree = "<group>";
+		};
+		D6D728A71F356631000B9126 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6D728B31F356631000B9126 /* Assets.xcassets */,
+				D6D728B51F356631000B9126 /* LaunchScreen.storyboard */,
+				D6D728B81F356631000B9126 /* Info.plist */,
+				D6D728A81F356631000B9126 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6D728C01F356631000B9126 /* JCRoutableExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D6D728C11F356631000B9126 /* JCRoutableExampleTests.m */,
+				D6D728C31F356631000B9126 /* Info.plist */,
+			);
+			path = JCRoutableExampleTests;
+			sourceTree = "<group>";
+		};
+		D6D728CB1F356631000B9126 /* JCRoutableExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D6D728CC1F356631000B9126 /* JCRoutableExampleUITests.m */,
+				D6D728CE1F356631000B9126 /* Info.plist */,
+			);
+			path = JCRoutableExampleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D6D728A31F356631000B9126 /* JCRoutableExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6D728D11F356631000B9126 /* Build configuration list for PBXNativeTarget "JCRoutableExample" */;
+			buildPhases = (
+				D6D728A01F356631000B9126 /* Sources */,
+				D6D728A11F356631000B9126 /* Frameworks */,
+				D6D728A21F356631000B9126 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JCRoutableExample;
+			productName = JCRoutableExample;
+			productReference = D6D728A41F356631000B9126 /* JCRoutableExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D6D728BC1F356631000B9126 /* JCRoutableExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6D728D41F356631000B9126 /* Build configuration list for PBXNativeTarget "JCRoutableExampleTests" */;
+			buildPhases = (
+				D6D728B91F356631000B9126 /* Sources */,
+				D6D728BA1F356631000B9126 /* Frameworks */,
+				D6D728BB1F356631000B9126 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6D728BF1F356631000B9126 /* PBXTargetDependency */,
+			);
+			name = JCRoutableExampleTests;
+			productName = JCRoutableExampleTests;
+			productReference = D6D728BD1F356631000B9126 /* JCRoutableExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D6D728C71F356631000B9126 /* JCRoutableExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6D728D71F356631000B9126 /* Build configuration list for PBXNativeTarget "JCRoutableExampleUITests" */;
+			buildPhases = (
+				D6D728C41F356631000B9126 /* Sources */,
+				D6D728C51F356631000B9126 /* Frameworks */,
+				D6D728C61F356631000B9126 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6D728CA1F356631000B9126 /* PBXTargetDependency */,
+			);
+			name = JCRoutableExampleUITests;
+			productName = JCRoutableExampleUITests;
+			productReference = D6D728C81F356631000B9126 /* JCRoutableExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D6D7289C1F356631000B9126 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = chenjiangchuan;
+				TargetAttributes = {
+					D6D728A31F356631000B9126 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 26739ZC4WY;
+						ProvisioningStyle = Automatic;
+					};
+					D6D728BC1F356631000B9126 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 26739ZC4WY;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D6D728A31F356631000B9126;
+					};
+					D6D728C71F356631000B9126 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 26739ZC4WY;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D6D728A31F356631000B9126;
+					};
+				};
+			};
+			buildConfigurationList = D6D7289F1F356631000B9126 /* Build configuration list for PBXProject "JCRoutableExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D6D7289B1F356631000B9126;
+			productRefGroup = D6D728A51F356631000B9126 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6D728A31F356631000B9126 /* JCRoutableExample */,
+				D6D728BC1F356631000B9126 /* JCRoutableExampleTests */,
+				D6D728C71F356631000B9126 /* JCRoutableExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D6D728A21F356631000B9126 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6D728EE1F3566A5000B9126 /* JCLoginViewController.xib in Resources */,
+				D6D728F11F3566A5000B9126 /* RoutableConfigure.plist in Resources */,
+				D6D728B71F356631000B9126 /* LaunchScreen.storyboard in Resources */,
+				D6D728B41F356631000B9126 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D728BB1F356631000B9126 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D728C61F356631000B9126 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D6D728A01F356631000B9126 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D65D536B1F35673200E273AD /* NSObject+ReverseValue.m in Sources */,
+				D6D728F51F3566A5000B9126 /* ViewController.m in Sources */,
+				D65D536E1F35673200E273AD /* UIViewController+Utils.m in Sources */,
+				D6D728F31F3566A5000B9126 /* TabBarController.m in Sources */,
+				D6D728F21F3566A5000B9126 /* SecondViewController.m in Sources */,
+				D6D728F41F3566A5000B9126 /* ThirdViewController.m in Sources */,
+				D6D728ED1F3566A5000B9126 /* JCLoginViewController.m in Sources */,
+				D65D536C1F35673200E273AD /* Routable.m in Sources */,
+				D65D536D1F35673200E273AD /* UIViewController+UnRegister.m in Sources */,
+				D6D728EC1F3566A5000B9126 /* AppDelegate.m in Sources */,
+				D6D728A91F356631000B9126 /* main.m in Sources */,
+				D6D728EF1F3566A5000B9126 /* JCView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D728B91F356631000B9126 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6D728C21F356631000B9126 /* JCRoutableExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D728C41F356631000B9126 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6D728CD1F356631000B9126 /* JCRoutableExampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6D728BF1F356631000B9126 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6D728A31F356631000B9126 /* JCRoutableExample */;
+			targetProxy = D6D728BE1F356631000B9126 /* PBXContainerItemProxy */;
+		};
+		D6D728CA1F356631000B9126 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6D728A31F356631000B9126 /* JCRoutableExample */;
+			targetProxy = D6D728C91F356631000B9126 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D6D728B51F356631000B9126 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6D728B61F356631000B9126 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D6D728CF1F356631000B9126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D6D728D01F356631000B9126 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D6D728D21F356631000B9126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 26739ZC4WY;
+				INFOPLIST_FILE = JCRoutableExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oriochan.www.JCRoutableExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D6D728D31F356631000B9126 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 26739ZC4WY;
+				INFOPLIST_FILE = JCRoutableExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oriochan.www.JCRoutableExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D6D728D51F356631000B9126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 26739ZC4WY;
+				INFOPLIST_FILE = JCRoutableExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oriochan.www.JCRoutableExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JCRoutableExample.app/JCRoutableExample";
+			};
+			name = Debug;
+		};
+		D6D728D61F356631000B9126 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 26739ZC4WY;
+				INFOPLIST_FILE = JCRoutableExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oriochan.www.JCRoutableExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JCRoutableExample.app/JCRoutableExample";
+			};
+			name = Release;
+		};
+		D6D728D81F356631000B9126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 26739ZC4WY;
+				INFOPLIST_FILE = JCRoutableExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oriochan.www.JCRoutableExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JCRoutableExample;
+			};
+			name = Debug;
+		};
+		D6D728D91F356631000B9126 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 26739ZC4WY;
+				INFOPLIST_FILE = JCRoutableExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.oriochan.www.JCRoutableExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JCRoutableExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D6D7289F1F356631000B9126 /* Build configuration list for PBXProject "JCRoutableExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6D728CF1F356631000B9126 /* Debug */,
+				D6D728D01F356631000B9126 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6D728D11F356631000B9126 /* Build configuration list for PBXNativeTarget "JCRoutableExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6D728D21F356631000B9126 /* Debug */,
+				D6D728D31F356631000B9126 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6D728D41F356631000B9126 /* Build configuration list for PBXNativeTarget "JCRoutableExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6D728D51F356631000B9126 /* Debug */,
+				D6D728D61F356631000B9126 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6D728D71F356631000B9126 /* Build configuration list for PBXNativeTarget "JCRoutableExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6D728D81F356631000B9126 /* Debug */,
+				D6D728D91F356631000B9126 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D6D7289C1F356631000B9126 /* Project object */;
+}
