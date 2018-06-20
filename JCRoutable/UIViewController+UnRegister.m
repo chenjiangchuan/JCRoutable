@@ -11,6 +11,11 @@
 @implementation UIViewController (UnRegister)
 
 + (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController {
+    [self unRegisterAccountToLoginViewController:loginViewController hiddenNavigationBar:YES];
+}
+
++ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController
+                           hiddenNavigationBar:(BOOL)hidden {
     if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *rootNV = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
         // 获取navigation的子控制器
@@ -42,7 +47,7 @@
             [[UIApplication sharedApplication].keyWindow.rootViewController setValue:navMArray forKey:@"childViewControllers"];
             [UIApplication sharedApplication].keyWindow.rootViewController = nil;
             UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:loginVC];
-            [nc.navigationBar setHidden:YES];
+            [nc.navigationBar setHidden:hidden];
             [UIApplication sharedApplication].keyWindow.rootViewController = nc;
         }
     }

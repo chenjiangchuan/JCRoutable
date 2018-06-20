@@ -16,7 +16,9 @@
  *  注销，回到登录界面
  *
  *  @param loginViewController 登录界面控制器
+ *  @param hidden              是否隐藏导航栏
  */
-+ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController;
++ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController
+                           hiddenNavigationBar:(BOOL)hidden;
 
 @end

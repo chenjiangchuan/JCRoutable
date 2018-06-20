@@ -380,11 +380,14 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
 /**
  *  @author chenjiangchuan, 2017-06-21 15:06
  *
- *  注销/被挤下线
+ *  注销/被挤下线，默认隐藏导航栏
  *
  *  @param loginViewController 登录界面控制的类名
  */
 + (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController;
+
++ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController
+                           hiddenNavigationBar:(BOOL)hidden;
 
 /**
  *  @author chenjiangchuan, 2017-07-21 10:07

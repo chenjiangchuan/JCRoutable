@@ -43,7 +43,13 @@
 }
 
 + (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController {
-    [UIViewController unRegisterAccountToLoginViewController:loginViewController];
+    [self unRegisterAccountToLoginViewController:loginViewController hiddenNavigationBar:YES];
+}
+
++ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController
+                           hiddenNavigationBar:(BOOL)hidden {
+    [UIViewController unRegisterAccountToLoginViewController:loginViewController
+                                         hiddenNavigationBar:hidden];
 }
 
 + (void)mapViewControllerToConfigurePlistFile:(NSString *)configurePlistFilePath; {
