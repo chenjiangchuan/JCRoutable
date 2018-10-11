@@ -364,6 +364,7 @@
   else {
     [self.navigationController popViewControllerAnimated:animated];
   }
+  self.navigationController = nil;
 }
 - (void)pop {
   [self popViewControllerFromRouterAnimated:YES];
