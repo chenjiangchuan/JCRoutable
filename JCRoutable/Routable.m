@@ -29,17 +29,17 @@
 @implementation Routable
 
 + (instancetype)sharedRouter {
-  static Routable *_sharedRouter = nil;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    _sharedRouter = [[Routable alloc] init];
-  });
-  return _sharedRouter;
+    static Routable *_sharedRouter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedRouter = [[Routable alloc] init];
+    });
+    return _sharedRouter;
 }
 
 //really unnecessary; kept for backward compatibility.
 + (instancetype)newRouter {
-  return [[self alloc] init];
+    return [[self alloc] init];
 }
 
 + (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController {
@@ -76,21 +76,21 @@
 @implementation RouterParams
 
 - (instancetype)initWithRouterOptions: (UPRouterOptions *)routerOptions openParams: (NSDictionary *)openParams extraParams: (NSDictionary *)extraParams{
-  [self setRouterOptions:routerOptions];
-  [self setExtraParams: extraParams];
-  [self setOpenParams:openParams];
-  return self;
+    [self setRouterOptions:routerOptions];
+    [self setExtraParams: extraParams];
+    [self setOpenParams:openParams];
+    return self;
 }
 
 - (NSDictionary *)controllerParams {
-  NSMutableDictionary *controllerParams = [NSMutableDictionary dictionaryWithDictionary:self.routerOptions.defaultParams];
-  [controllerParams addEntriesFromDictionary:self.extraParams];
-  [controllerParams addEntriesFromDictionary:self.openParams];
-  return controllerParams;
+    NSMutableDictionary *controllerParams = [NSMutableDictionary dictionaryWithDictionary:self.routerOptions.defaultParams];
+    [controllerParams addEntriesFromDictionary:self.extraParams];
+    [controllerParams addEntriesFromDictionary:self.openParams];
+    return controllerParams;
 }
 //fake getter. Not idiomatic Objective-C. Use accessor controllerParams instead
 - (NSDictionary *)getControllerParams {
-  return [self controllerParams];
+    return [self controllerParams];
 }
 @end
 
@@ -108,97 +108,97 @@
                                      defaultParams: (NSDictionary *)defaultParams
                                             isRoot: (BOOL)isRoot
                                            isModal: (BOOL)isModal {
-  UPRouterOptions *options = [[UPRouterOptions alloc] init];
-  options.presentationStyle = presentationStyle;
-  options.transitionStyle = transitionStyle;
-  options.defaultParams = defaultParams;
-  options.shouldOpenAsRootViewController = isRoot;
-  options.modal = isModal;
-  return options;
+    UPRouterOptions *options = [[UPRouterOptions alloc] init];
+    options.presentationStyle = presentationStyle;
+    options.transitionStyle = transitionStyle;
+    options.defaultParams = defaultParams;
+    options.shouldOpenAsRootViewController = isRoot;
+    options.modal = isModal;
+    return options;
 }
 //Default construction; like [NSArray array]
 + (instancetype)routerOptions {
-  return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
-                                  transitionStyle:UIModalTransitionStyleCoverVertical
-                                    defaultParams:nil
-                                           isRoot:NO
-                                          isModal:NO];
+    return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
+                                    transitionStyle:UIModalTransitionStyleCoverVertical
+                                      defaultParams:nil
+                                             isRoot:NO
+                                            isModal:NO];
 }
 
 //Custom class constructors, with heavier Objective-C accent
 + (instancetype)routerOptionsAsModal {
-  return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
-                                  transitionStyle:UIModalTransitionStyleCoverVertical
-                                    defaultParams:nil
-                                           isRoot:NO
-                                          isModal:YES];
+    return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
+                                    transitionStyle:UIModalTransitionStyleCoverVertical
+                                      defaultParams:nil
+                                             isRoot:NO
+                                            isModal:YES];
 }
 + (instancetype)routerOptionsWithPresentationStyle:(UIModalPresentationStyle)style {
-  return [self routerOptionsWithPresentationStyle:style
-                                  transitionStyle:UIModalTransitionStyleCoverVertical
-                                    defaultParams:nil
-                                           isRoot:NO
-                                          isModal:NO];
+    return [self routerOptionsWithPresentationStyle:style
+                                    transitionStyle:UIModalTransitionStyleCoverVertical
+                                      defaultParams:nil
+                                             isRoot:NO
+                                            isModal:NO];
 }
 + (instancetype)routerOptionsWithTransitionStyle:(UIModalTransitionStyle)style {
-  return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
-                                  transitionStyle:style
-                                    defaultParams:nil
-                                           isRoot:NO
-                                          isModal:NO];
+    return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
+                                    transitionStyle:style
+                                      defaultParams:nil
+                                             isRoot:NO
+                                            isModal:NO];
 }
 + (instancetype)routerOptionsForDefaultParams:(NSDictionary *)defaultParams {
-  return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
-                                  transitionStyle:UIModalTransitionStyleCoverVertical
-                                    defaultParams:defaultParams
-                                           isRoot:NO
-                                          isModal:NO];
+    return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
+                                    transitionStyle:UIModalTransitionStyleCoverVertical
+                                      defaultParams:defaultParams
+                                             isRoot:NO
+                                            isModal:NO];
 }
 + (instancetype)routerOptionsAsRoot {
-  return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
-                                  transitionStyle:UIModalTransitionStyleCoverVertical
-                                    defaultParams:nil
-                                           isRoot:YES
-                                          isModal:NO];
+    return [self routerOptionsWithPresentationStyle:UIModalPresentationNone
+                                    transitionStyle:UIModalTransitionStyleCoverVertical
+                                      defaultParams:nil
+                                             isRoot:YES
+                                            isModal:NO];
 }
 
 //Exposed methods previously supported
 + (instancetype)modal {
-  return [self routerOptionsAsModal];
+    return [self routerOptionsAsModal];
 }
 + (instancetype)withPresentationStyle:(UIModalPresentationStyle)style {
-  return [self routerOptionsWithPresentationStyle:style];
+    return [self routerOptionsWithPresentationStyle:style];
 }
 + (instancetype)withTransitionStyle:(UIModalTransitionStyle)style {
-  return [self routerOptionsWithTransitionStyle:style];
+    return [self routerOptionsWithTransitionStyle:style];
 }
 + (instancetype)forDefaultParams:(NSDictionary *)defaultParams {
-  return [self routerOptionsForDefaultParams:defaultParams];
+    return [self routerOptionsForDefaultParams:defaultParams];
 }
 + (instancetype)root {
-  return [self routerOptionsAsRoot];
+    return [self routerOptionsAsRoot];
 }
 
 //Wrappers around setters (to continue DSL-like syntax)
 - (UPRouterOptions *)modal {
-  [self setModal:YES];
-  return self;
+    [self setModal:YES];
+    return self;
 }
 - (UPRouterOptions *)withPresentationStyle:(UIModalPresentationStyle)style {
-  [self setPresentationStyle:style];
-  return self;
+    [self setPresentationStyle:style];
+    return self;
 }
 - (UPRouterOptions *)withTransitionStyle:(UIModalTransitionStyle)style {
-  [self setTransitionStyle:style];
-  return self;
+    [self setTransitionStyle:style];
+    return self;
 }
 - (UPRouterOptions *)forDefaultParams:(NSDictionary *)defaultParams {
-  [self setDefaultParams:defaultParams];
-  return self;
+    [self setDefaultParams:defaultParams];
+    return self;
 }
 - (UPRouterOptions *)root {
-  [self setShouldOpenAsRootViewController:YES];
-  return self;
+    [self setShouldOpenAsRootViewController:YES];
+    return self;
 }
 @end
 
@@ -219,59 +219,59 @@
 @implementation UPRouter
 
 - (id)init {
-  if ((self = [super init])) {
-    self.routes = [NSMutableDictionary dictionary];
-    self.cachedRoutes = [NSMutableDictionary dictionary];
-  }
-  return self;
+    if ((self = [super init])) {
+        self.routes = [NSMutableDictionary dictionary];
+        self.cachedRoutes = [NSMutableDictionary dictionary];
+    }
+    return self;
 }
 
 - (void)map:(NSString *)format toCallback:(RouterOpenCallback)callback {
-  [self map:format toCallback:callback withOptions:nil];
+    [self map:format toCallback:callback withOptions:nil];
 }
 
 - (void)map:(NSString *)format toCallback:(RouterOpenCallback)callback withOptions:(UPRouterOptions *)options {
-  if (!format) {
-    @throw [NSException exceptionWithName:@"RouteNotProvided"
-                                   reason:@"Route #format is not initialized"
-                                 userInfo:nil];
-    return;
-  }
-  if (!options) {
-    options = [UPRouterOptions routerOptions];
-  }
-  options.callback = callback;
-  [self.routes setObject:options forKey:format];
+    if (!format) {
+        @throw [NSException exceptionWithName:@"RouteNotProvided"
+                                       reason:@"Route #format is not initialized"
+                                     userInfo:nil];
+        return;
+    }
+    if (!options) {
+        options = [UPRouterOptions routerOptions];
+    }
+    options.callback = callback;
+    [self.routes setObject:options forKey:format];
 }
 
 - (void)map:(NSString *)format toController:(Class)controllerClass {
-  [self map:format toController:controllerClass withOptions:nil];
+    [self map:format toController:controllerClass withOptions:nil];
 }
 
 - (void)map:(NSString *)format toController:(Class)controllerClass withOptions:(UPRouterOptions *)options {
-  if (!format) {
-    @throw [NSException exceptionWithName:@"RouteNotProvided"
-                                   reason:@"Route #format is not initialized"
-                                 userInfo:nil];
-    return;
-  }
-  if (!options) {
-    options = [UPRouterOptions routerOptions];
-  }
-  options.openClass = controllerClass;
-  [self.routes setObject:options forKey:format];
+    if (!format) {
+        @throw [NSException exceptionWithName:@"RouteNotProvided"
+                                       reason:@"Route #format is not initialized"
+                                     userInfo:nil];
+        return;
+    }
+    if (!options) {
+        options = [UPRouterOptions routerOptions];
+    }
+    options.openClass = controllerClass;
+    [self.routes setObject:options forKey:format];
 }
 
 - (void)openExternal:(NSString *)url {
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 - (void)open:(NSString *)url {
-  [self open:url animated:YES];
+    [self open:url animated:YES];
 }
 
 - (void)open:(NSString *)url animated:(BOOL)animated {
-  [self open:url animated:animated extraParams:nil];
+    [self open:url animated:animated extraParams:nil];
 }
 
 - (void)open:(NSString *)url
@@ -283,21 +283,6 @@
 
 // add by cjc
 - (void)open:(NSString *)url animated:(BOOL)animated extraParams:(NSDictionary *)extraParams  delegateObject:(id)delegateObject {
-    
-    // 处理navigationController
-    UIViewController *currentController = [UIViewController currentViewController];
-    if ([currentController isKindOfClass:[UIViewController class]]) {
-        if (currentController.navigationController) {
-            self.navigationController = currentController.navigationController;
-        } else {
-            self.navigationController = [[UINavigationController alloc] init];
-        }
-    } else if ([currentController isKindOfClass:[UINavigationController class]]) {
-        self.navigationController = (UINavigationController *)currentController;
-    } else {
-        self.navigationController = [[UINavigationController alloc] init];
-    }
-    
     RouterParams *params = [self routerParamsForUrl:url extraParams: extraParams];
     UPRouterOptions *options = params.routerOptions;
     
@@ -350,129 +335,154 @@
     else {
         [self.navigationController pushViewController:controller animated:animated];
     }
+    
+    // 置为nil，防止强应用，导致ViewController不能释放
+    self.navigationController = nil;
+    
 } // end
 
 - (NSDictionary*)paramsOfUrl:(NSString*)url {
-  return [[self routerParamsForUrl:url] controllerParams];
+    return [[self routerParamsForUrl:url] controllerParams];
 }
 
 //Stack operations
 - (void)popViewControllerFromRouterAnimated:(BOOL)animated {
-  if (self.navigationController.presentedViewController) {
-    [self.navigationController dismissViewControllerAnimated:animated completion:nil];
-  }
-  else {
-    [self.navigationController popViewControllerAnimated:animated];
-  }
-  self.navigationController = nil;
+    if (self.navigationController.presentedViewController) {
+        [self.navigationController dismissViewControllerAnimated:animated completion:nil];
+    }
+    else {
+        [self.navigationController popViewControllerAnimated:animated];
+    }
+    // 置为nil，防止强应用，导致ViewController不能释放
+    self.navigationController = nil;
 }
 - (void)pop {
-  [self popViewControllerFromRouterAnimated:YES];
+    [self popViewControllerFromRouterAnimated:YES];
 }
 - (void)pop:(BOOL)animated {
-  [self popViewControllerFromRouterAnimated:animated];
+    [self popViewControllerFromRouterAnimated:animated];
 }
 
 ///////
 - (RouterParams *)routerParamsForUrl:(NSString *)url extraParams: (NSDictionary *)extraParams {
-  if (!url) {
-    //if we wait, caching this as key would throw an exception
-    if (_ignoresExceptions) {
-      return nil;
+    if (!url) {
+        //if we wait, caching this as key would throw an exception
+        if (_ignoresExceptions) {
+            return nil;
+        }
+        @throw [NSException exceptionWithName:@"RouteNotFoundException"
+                                       reason:[NSString stringWithFormat:ROUTE_NOT_FOUND_FORMAT, url]
+                                     userInfo:nil];
     }
-    @throw [NSException exceptionWithName:@"RouteNotFoundException"
-                                   reason:[NSString stringWithFormat:ROUTE_NOT_FOUND_FORMAT, url]
-                                 userInfo:nil];
-  }
-  
-  if ([self.cachedRoutes objectForKey:url] && !extraParams) {
-    return [self.cachedRoutes objectForKey:url];
-  }
-  
-  NSArray *givenParts = url.pathComponents;
-  NSArray *legacyParts = [url componentsSeparatedByString:@"/"];
-  if ([legacyParts count] != [givenParts count]) {
-    NSLog(@"Routable Warning - your URL %@ has empty path components - this will throw an error in an upcoming release", url);
-    givenParts = legacyParts;
-  }
-  
-  __block RouterParams *openParams = nil;
-  [self.routes enumerateKeysAndObjectsUsingBlock:
-   ^(NSString *routerUrl, UPRouterOptions *routerOptions, BOOL *stop) {
-     
-     NSArray *routerParts = [routerUrl pathComponents];
-     if ([routerParts count] == [givenParts count]) {
-       
-       NSDictionary *givenParams = [self paramsForUrlComponents:givenParts routerUrlComponents:routerParts];
-       if (givenParams) {
-         openParams = [[RouterParams alloc] initWithRouterOptions:routerOptions openParams:givenParams extraParams: extraParams];
-         *stop = YES;
-       }
-     }
-   }];
-  
-  if (!openParams) {
-    if (_ignoresExceptions) {
-      return nil;
+    
+    if ([self.cachedRoutes objectForKey:url] && !extraParams) {
+        return [self.cachedRoutes objectForKey:url];
     }
-    @throw [NSException exceptionWithName:@"RouteNotFoundException"
-                                   reason:[NSString stringWithFormat:ROUTE_NOT_FOUND_FORMAT, url]
-                                 userInfo:nil];
-  }
-  [self.cachedRoutes setObject:openParams forKey:url];
-  return openParams;
+    
+    NSArray *givenParts = url.pathComponents;
+    NSArray *legacyParts = [url componentsSeparatedByString:@"/"];
+    if ([legacyParts count] != [givenParts count]) {
+        NSLog(@"Routable Warning - your URL %@ has empty path components - this will throw an error in an upcoming release", url);
+        givenParts = legacyParts;
+    }
+    
+    __block RouterParams *openParams = nil;
+    [self.routes enumerateKeysAndObjectsUsingBlock:
+     ^(NSString *routerUrl, UPRouterOptions *routerOptions, BOOL *stop) {
+         
+         NSArray *routerParts = [routerUrl pathComponents];
+         if ([routerParts count] == [givenParts count]) {
+             
+             NSDictionary *givenParams = [self paramsForUrlComponents:givenParts routerUrlComponents:routerParts];
+             if (givenParams) {
+                 openParams = [[RouterParams alloc] initWithRouterOptions:routerOptions openParams:givenParams extraParams: extraParams];
+                 *stop = YES;
+             }
+         }
+     }];
+    
+    if (!openParams) {
+        if (_ignoresExceptions) {
+            return nil;
+        }
+        @throw [NSException exceptionWithName:@"RouteNotFoundException"
+                                       reason:[NSString stringWithFormat:ROUTE_NOT_FOUND_FORMAT, url]
+                                     userInfo:nil];
+    }
+    [self.cachedRoutes setObject:openParams forKey:url];
+    return openParams;
 }
 
 - (RouterParams *)routerParamsForUrl:(NSString *)url {
-  return [self routerParamsForUrl:url extraParams: nil];
+    return [self routerParamsForUrl:url extraParams: nil];
 }
 
 - (NSDictionary *)paramsForUrlComponents:(NSArray *)givenUrlComponents
                      routerUrlComponents:(NSArray *)routerUrlComponents {
-  
-  __block NSMutableDictionary *params = [NSMutableDictionary dictionary];
-  [routerUrlComponents enumerateObjectsUsingBlock:
-   ^(NSString *routerComponent, NSUInteger idx, BOOL *stop) {
-     
-     NSString *givenComponent = givenUrlComponents[idx];
-     if ([routerComponent hasPrefix:@":"]) {
-       NSString *key = [routerComponent substringFromIndex:1];
-       [params setObject:givenComponent forKey:key];
-     }
-     else if (![routerComponent isEqualToString:givenComponent]) {
-       params = nil;
-       *stop = YES;
-     }
-   }];
-  return params;
+    
+    __block NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [routerUrlComponents enumerateObjectsUsingBlock:
+     ^(NSString *routerComponent, NSUInteger idx, BOOL *stop) {
+         
+         NSString *givenComponent = givenUrlComponents[idx];
+         if ([routerComponent hasPrefix:@":"]) {
+             NSString *key = [routerComponent substringFromIndex:1];
+             [params setObject:givenComponent forKey:key];
+         }
+         else if (![routerComponent isEqualToString:givenComponent]) {
+             params = nil;
+             *stop = YES;
+         }
+     }];
+    return params;
 }
 
 - (UIViewController *)controllerForRouterParams:(RouterParams *)params {
-  SEL CONTROLLER_CLASS_SELECTOR = sel_registerName("allocWithRouterParams:");
-  SEL CONTROLLER_SELECTOR = sel_registerName("initWithRouterParams:");
-  UIViewController *controller = nil;
-  Class controllerClass = params.routerOptions.openClass;
+    SEL CONTROLLER_CLASS_SELECTOR = sel_registerName("allocWithRouterParams:");
+    SEL CONTROLLER_SELECTOR = sel_registerName("initWithRouterParams:");
+    UIViewController *controller = nil;
+    Class controllerClass = params.routerOptions.openClass;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-  if ([controllerClass respondsToSelector:CONTROLLER_CLASS_SELECTOR]) {
-    controller = [controllerClass performSelector:CONTROLLER_CLASS_SELECTOR withObject:[params controllerParams]];
-  }
-  else if ([params.routerOptions.openClass instancesRespondToSelector:CONTROLLER_SELECTOR]) {
-    controller = [[params.routerOptions.openClass alloc] performSelector:CONTROLLER_SELECTOR withObject:[params controllerParams]];
-  }
-#pragma clang diagnostic pop
-  if (!controller) {
-    if (_ignoresExceptions) {
-      return controller;
+    if ([controllerClass respondsToSelector:CONTROLLER_CLASS_SELECTOR]) {
+        controller = [controllerClass performSelector:CONTROLLER_CLASS_SELECTOR withObject:[params controllerParams]];
     }
-    @throw [NSException exceptionWithName:@"RoutableInitializerNotFound"
-                                   reason:[NSString stringWithFormat:INVALID_CONTROLLER_FORMAT, NSStringFromClass(controllerClass), NSStringFromSelector(CONTROLLER_CLASS_SELECTOR),  NSStringFromSelector(CONTROLLER_SELECTOR)]
-                                 userInfo:nil];
-  }
-  
-  controller.modalTransitionStyle = params.routerOptions.transitionStyle;
-  controller.modalPresentationStyle = params.routerOptions.presentationStyle;
-  return controller;
+    else if ([params.routerOptions.openClass instancesRespondToSelector:CONTROLLER_SELECTOR]) {
+        controller = [[params.routerOptions.openClass alloc] performSelector:CONTROLLER_SELECTOR withObject:[params controllerParams]];
+    }
+#pragma clang diagnostic pop
+    if (!controller) {
+        if (_ignoresExceptions) {
+            return controller;
+        }
+        @throw [NSException exceptionWithName:@"RoutableInitializerNotFound"
+                                       reason:[NSString stringWithFormat:INVALID_CONTROLLER_FORMAT, NSStringFromClass(controllerClass), NSStringFromSelector(CONTROLLER_CLASS_SELECTOR),  NSStringFromSelector(CONTROLLER_SELECTOR)]
+                                     userInfo:nil];
+    }
+    
+    controller.modalTransitionStyle = params.routerOptions.transitionStyle;
+    controller.modalPresentationStyle = params.routerOptions.presentationStyle;
+    return controller;
+}
+
+#pragma mark - Getters and Setters
+- (UINavigationController *)navigationController {
+    if (!_navigationController) {
+        // 处理navigationController
+        UIViewController *currentController = [UIViewController currentViewController];
+        if ([currentController isKindOfClass:[UIViewController class]]) {
+            if (currentController.navigationController) {
+                _navigationController = currentController.navigationController;
+            } else {
+                _navigationController = [[UINavigationController alloc] init];
+            }
+        } else if ([currentController isKindOfClass:[UINavigationController class]]) {
+            _navigationController = (UINavigationController *)currentController;
+        } else {
+            _navigationController = [[UINavigationController alloc] init];
+        }
+    }
+    return _navigationController;
 }
 
 @end
