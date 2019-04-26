@@ -1,5 +1,5 @@
 //
-//  UIViewController+Utils.h
+//  UIViewController+JCUtils.h
 //  SmartCommunity
 //
 //  Created by chenjiangchuan on 2017/5/17.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (Utils)
+@interface UIViewController (JCUtils)
 
 /**
  *  @author chenjiangchuan, 2017-05-17 17:05
@@ -17,6 +17,6 @@
  *
  *  @return 控制器
  */
-+ (UIViewController *)currentViewController;
++ (UIViewController *)jc_currentViewController;
 
 @end

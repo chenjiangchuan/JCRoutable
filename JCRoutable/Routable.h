@@ -25,8 +25,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "NSObject+ReverseValue.h"
-#import "UIViewController+Utils.h"
+#import "NSObject+JCReverseValue.h"
+#import "UIViewController+JCUtils.h"
+#import "UIViewController+JCRouterParams.h"
 
 @class UPRouter;
 
@@ -305,6 +306,7 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  @param options Configuration for the route, such as modal settings
  */
 - (void)map:(NSString *)format toController:(Class)controllerClass withOptions:(UPRouterOptions *)options;
+- (void)map:(NSString *)format storyboard:(NSString *)storyboard toController:(Class)controllerClass;
 
 ///-------------------------------
 /// @name Opening URLs
@@ -384,10 +386,10 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  *
  *  @param loginViewController 登录界面控制的类名
  */
-+ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController;
++ (void)jc_unRegisterAccountToLoginViewController:(NSString *)loginViewController;
 
-+ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController
-                           hiddenNavigationBar:(BOOL)hidden;
++ (void)jc_unRegisterAccountToLoginViewController:(NSString *)loginViewController
+                              hiddenNavigationBar:(BOOL)hidden;
 
 /**
  *  @author chenjiangchuan, 2017-07-21 10:07
@@ -396,6 +398,6 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  *
  *  @param configurePlistFilePath 映射的plist文件
  */
-+ (void)mapViewControllerToConfigurePlistFile:(NSString *)configurePlistFilePath;
++ (void)jc_mapViewControllerToConfigurePlistFile:(NSString *)configurePlistFilePath;
 
 @end

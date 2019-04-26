@@ -8,6 +8,7 @@
 
 #import "ThirdViewController.h"
 #import "Routable.h"
+#import "ViewControllersMapKey.h"
 
 @interface ThirdViewController ()
 
@@ -19,21 +20,20 @@
 @implementation ThirdViewController
 
 #pragma mark - Routable Init
-
-- (id)initWithRouterParams:(NSDictionary *)params {
-    if ((self = [self initWithNibName:nil bundle:nil])) {
-        NSLog(@"%s, params = %@", __FUNCTION__, params);
-    }
-    return self;
-}
+//- (id)initWithRouterParams:(NSDictionary *)params {
+//    if ((self = [self initWithNibName:nil bundle:nil])) {
+//        NSLog(@"%s, params = %@", __FUNCTION__, params);
+//    }
+//    return self;
+//}
 
 #pragma mark - Life Cycle
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:self.button];
     [self layoutPageSubviews];
+    NSLog(@"%s, params = %@", __FUNCTION__, self.routerParams);
 }
 
 - (void)layoutPageSubviews {
@@ -43,10 +43,24 @@
 #pragma mark - Target Action
 
 - (void)buttonClick {
+#if 0
     // 需要逆向传递数据
     if ([self.JCReverseValueDelegate respondsToSelector:@selector(jc_reverseValue:)]) {
         [self.JCReverseValueDelegate jc_reverseValue:@"come from ThirdViewController"];
     }
+#endif
+    
+//    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"home" bundle:nil];
+//    FourthViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"FourthViewController"];
+//    FourthViewController *vc = [[FourthViewController alloc] init];
+    
+//    [[Routable sharedRouter] open:ThirdViewControllerMapKey
+//                         animated:YES
+//                      extraParams:@{@"title" : @"come from ViewController"}
+//                   delegateObject:self];
+    
+//    [self.navigationController pushViewController:vc animated:YES];
+    [[Routable sharedRouter] open:FourthViewControllerMapKey animated:YES extraParams:@{@"title" : @"come from ThirdViewController"} delegateObject:nil];
 }
 
 #pragma mark - Lazy Initialze

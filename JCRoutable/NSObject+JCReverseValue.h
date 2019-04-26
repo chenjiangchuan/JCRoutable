@@ -1,5 +1,5 @@
 //
-//  NSObject+ReverseValue.h
+//  NSObject+JCReverseValue.h
 //  RoutableDemo
 //
 //  Created by chenjiangchuan on 2017/6/7.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JCReverseValueProtocol.h"
 
-@interface NSObject (ReverseValue) <JCReverseValueProtocol>
+@interface NSObject (JCReverseValue) <JCReverseValueProtocol>
 
 /** ReverseValueProtocol */
 @property (weak, nonatomic) id<JCReverseValueProtocol> JCReverseValueDelegate;

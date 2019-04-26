@@ -13,5 +13,7 @@ static NSString *const JCLoginViewControllerMapKey = @"JCLoginViewControllerMapK
 static NSString *const ViewControllerMapKey = @"ViewControllerMapKey";
 static NSString *const SecondViewControllerMapKey = @"SecondViewControllerMapKey";
 static NSString *const ThirdViewControllerMapKey = @"ThirdViewControllerMapKey";
+static NSString *const FourthViewControllerMapKey = @"FourthViewControllerMapKey";
+static NSString *const HomeStoryboardMapKey = @"HomeStoryboardMapKey";
 
 #endif /* ViewControllersMapKey_h */

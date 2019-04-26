@@ -1,20 +1,24 @@
 //
-//  UIViewController+UnRegister.m
+//  UIViewController+JCUnRegister.m
 //  AppFrameworkDemo
 //
 //  Created by chenjiangchuan on 2017/6/21.
 //  Copyright © 2017年 Hori-GZ. All rights reserved.
 //
 
-#import "UIViewController+UnRegister.h"
+#import "UIViewController+JCUnRegister.h"
 
-@implementation UIViewController (UnRegister)
+@implementation UIViewController (JCUnRegister)
 
-+ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController {
-    [self unRegisterAccountToLoginViewController:loginViewController hiddenNavigationBar:YES];
+#pragma mark -
+#pragma mark - Public Methods
++ (void)jc_unRegisterAccountToLoginViewController:(NSString *)loginViewController {
+    [self jc_unRegisterAccountToLoginViewController:loginViewController hiddenNavigationBar:YES];
 }
 
-+ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController
+#pragma mark -
+#pragma mark - Private Methods
++ (void)jc_unRegisterAccountToLoginViewController:(NSString *)loginViewController
                            hiddenNavigationBar:(BOOL)hidden {
     if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *rootNV = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;

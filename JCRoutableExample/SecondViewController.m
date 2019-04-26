@@ -33,6 +33,7 @@
     [self.view addSubview:self.logoutButton];
     self.navigationItem.title = @"第二个控制器";
     [self layoutPageSubviews];
+    NSLog(@"%s, %@", __FUNCTION__, self.routerParams);
 }
 
 - (void)layoutPageSubviews {
@@ -44,7 +45,7 @@
 - (void)logoutButtonAction {
     NSLog(@"%s", __FUNCTION__);
     // 注销，回到登录界面
-    [Routable unRegisterAccountToLoginViewController:@"JCLoginViewController"];
+    [Routable jc_unRegisterAccountToLoginViewController:@"JCLoginViewController"];
 }
 
 #pragma mark - Lazy Initialze

@@ -1,5 +1,5 @@
 //
-//  UIViewController+UnRegister.h
+//  UIViewController+JCUnRegister.h
 //  AppFrameworkDemo
 //
 //  Created by chenjiangchuan on 2017/6/21.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (UnRegister)
+@interface UIViewController (JCUnRegister)
 
 /**
  *  @author chenjiangchuan, 2017-07-21 09:07
@@ -18,7 +18,7 @@
  *  @param loginViewController 登录界面控制器
  *  @param hidden              是否隐藏导航栏
  */
-+ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController
-                           hiddenNavigationBar:(BOOL)hidden;
++ (void)jc_unRegisterAccountToLoginViewController:(NSString *)loginViewController
+                              hiddenNavigationBar:(BOOL)hidden;
 
 @end

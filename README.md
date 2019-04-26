@@ -35,16 +35,20 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### 添加的格外功能
 
-1. 添加一个批量设置控制器URL的方法，你只需要传入对应的plist配置文件路径：
+1. 添加一个批量设置控制器URL的方法，你只需要传入对应的plist配置文件路径，新版增加了从storyboard创建控制器的支持：
 
     ```
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"RoutableConfigure.plist" ofType:nil];
-    [Routable mapViewControllerToConfigurePlistFile:plistPath];
+    [Routable jc_mapViewControllerToConfigurePlistFile:plistPath];
     ```
     其中RoutableConfigure.plist是控制器URL的映射表：
     ![](https://github.com/chenjiangchuan/JCRoutable/raw/master/image/urlmaptable.png)
     
-    key为map的参数，value为控制器的类名。
+    1. 普通方式创建的ViewController：key为map的参数，value为控制器的类名；
+    2. 通过storyboard创建的控制器，需要而外的字典描述：
+        * `HomeStoryboard`代表一个storyboard，注意的是名字必须包含`Storyboard`；
+        * `HomeStoryboardMapKey`对应的value就是storyboard真实名字`home`；
+        * `FourthViewControllerMapKey`对应的value是ViewController在stroyboard中的ID，通常我们设置和控制器同名`FourthViewController`。
     
     最后新建一个.h文件，用来定义这些key：
     
@@ -56,14 +60,15 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     static NSString *const ViewControllerMapKey = @"ViewControllerMapKey";
     static NSString *const SecondViewControllerMapKey = @"SecondViewControllerMapKey";
     static NSString *const ThirdViewControllerMapKey = @"ThirdViewControllerMapKey";
+    static NSString *const HomeStoryboardMapKey = @"HomeStoryboardMapKey";
 
     #endif /* ViewControllersMapKey_h */
     ```
+> Plist文件不能配错，要不然解析会出现问题
 
-2. 原Routable框架需要手动设置navigationController
-
+1. 不需要手动配置Routable的NavigationController属性
     ```
-    // JCRoutable不要设置
+    // 原Routable框架需要手动设置navigationController（JCRoutable不要设置）
     [[Routable sharedRouter] setNavigationController:aNavigationController];
     ```
     
@@ -119,9 +124,30 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     
     这样ViewController1跳转ViewController2，则由NavigationController1负责；反过来ViewController2跳转ViewController1，则由NavigationController2负责。
 
-    > JCRoutable不需要手动配置Routable.navigationController，它会根据当前所在的Controller做对应的处理。
+3. 正向传值
+    
+    原Routable正向传值通过`initWithRouterParams:`和`allocWithRouterParams:`，如果ViewController没有实现这两个方法其一，就会抛异常，JCRoutable不强制实现这两个初始化方法，如果需要获取上个ViewController传过来的数据，直接使用`self.routerParams`
+    
+    ```
+    // FirstViewController.m
+    - (void)pushSecondVCAction {
+        [[Routable sharedRouter] 
+            open:SecondViewControllerMapKey 
+            animated:YES 
+            extraParams:@{@"title" : @"routerparamstest"} 
+            delegateObject:nil];
+    }
+    ```
+    
+    ```
+    // SecondViewController.m
+    - (void)viewDidLoad {
+        [super viewDidLoad];
+        NSLog(@"%s, params = %@", __FUNCTION__, self.routerParams);
+    }
+    ```
 
-3. 逆向传值
+4. 逆向传值
 
     添加了NSObject+ReverseValue分类，然后在该分类中添加遵守JCReverseValueProtocol协议的属性，只要*#import "Routable.h"*即可。
 
@@ -145,11 +171,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     }
     ```
 
-4. 用户注销返回登录界面
+5. 用户注销返回登录界面
 
     ```
     // 参数为登录界面控制器的类名
-    [Routable unRegisterAccountToLoginViewController:@"LoginViewController"];
+    [Routable jc_unRegisterAccountToLoginViewController:@"LoginViewController"];
     ```
 
 

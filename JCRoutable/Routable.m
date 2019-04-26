@@ -24,7 +24,7 @@
 // THE SOFTWARE.
 
 #import "Routable.h"
-#import "UIViewController+UnRegister.h"
+#import "UIViewController+JCUnRegister.h"
 
 @implementation Routable
 
@@ -42,22 +42,37 @@
     return [[self alloc] init];
 }
 
-+ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController {
-    [self unRegisterAccountToLoginViewController:loginViewController hiddenNavigationBar:YES];
++ (void)jc_unRegisterAccountToLoginViewController:(NSString *)loginViewController {
+    [self jc_unRegisterAccountToLoginViewController:loginViewController hiddenNavigationBar:YES];
 }
 
-+ (void)unRegisterAccountToLoginViewController:(NSString *)loginViewController
++ (void)jc_unRegisterAccountToLoginViewController:(NSString *)loginViewController
                            hiddenNavigationBar:(BOOL)hidden {
-    [UIViewController unRegisterAccountToLoginViewController:loginViewController
-                                         hiddenNavigationBar:hidden];
+    [UIViewController jc_unRegisterAccountToLoginViewController:loginViewController
+                                            hiddenNavigationBar:hidden];
 }
 
-+ (void)mapViewControllerToConfigurePlistFile:(NSString *)configurePlistFilePath; {
++ (void)jc_mapViewControllerToConfigurePlistFile:(NSString *)configurePlistFilePath; {
     NSMutableDictionary *configure = [[NSMutableDictionary alloc] initWithContentsOfFile:configurePlistFilePath];
+    [self jc_mapViewControllerToDictionary:configure storyboard:nil];
+}
+
++ (void)jc_mapViewControllerToDictionary:(NSDictionary *)configure storyboard:(NSString *)storyboard {
     if (configure && configure.count > 0) {
         NSArray *routableKey = [configure allKeys];
         for (NSUInteger index = 0; index < configure.count; index++) {
-            [[Routable sharedRouter] map:routableKey[index] toController:NSClassFromString(configure[routableKey[index]])];
+            if ([configure[routableKey[index]] isKindOfClass:[NSString class]]) {
+                [[Routable sharedRouter] map:routableKey[index] storyboard:storyboard toController:NSClassFromString(configure[routableKey[index]])];
+            } else if ([configure[routableKey[index]] isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *storyboard = configure[routableKey[index]];
+                __block NSString *storyboardName = nil;
+                NSMutableDictionary *otherVC = [NSMutableDictionary dictionary];
+                [storyboard enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL * _Nonnull stop) {
+                    if ([key containsString:@"Storyboard"]) storyboardName = obj;
+                    else [otherVC setObject:obj forKey:key];
+                }];
+                [self jc_mapViewControllerToDictionary:otherVC storyboard:storyboardName];
+            }
         }
     }
 }
@@ -97,6 +112,7 @@
 @interface UPRouterOptions ()
 
 @property (readwrite, nonatomic, strong) Class openClass;
+@property (readwrite, nonatomic, strong) NSString *storyboard;
 @property (readwrite, nonatomic, copy) RouterOpenCallback callback;
 @end
 
@@ -248,7 +264,15 @@
     [self map:format toController:controllerClass withOptions:nil];
 }
 
+- (void)map:(NSString *)format storyboard:(NSString *)storyboard toController:(Class)controllerClass {
+    [self map:format storyboard:storyboard toController:controllerClass withOptions:nil];
+}
+
 - (void)map:(NSString *)format toController:(Class)controllerClass withOptions:(UPRouterOptions *)options {
+    [self map:format storyboard:nil toController:controllerClass withOptions:options];
+}
+
+- (void)map:(NSString *)format storyboard:(NSString *)storyboard toController:(Class)controllerClass withOptions:(UPRouterOptions *)options {
     if (!format) {
         @throw [NSException exceptionWithName:@"RouteNotProvided"
                                        reason:@"Route #format is not initialized"
@@ -259,6 +283,7 @@
         options = [UPRouterOptions routerOptions];
     }
     options.openClass = controllerClass;
+    options.storyboard = storyboard;
     [self.routes setObject:options forKey:format];
 }
 
@@ -282,8 +307,8 @@
 }
 
 // add by cjc
-- (void)open:(NSString *)url animated:(BOOL)animated extraParams:(NSDictionary *)extraParams  delegateObject:(id)delegateObject {
-    RouterParams *params = [self routerParamsForUrl:url extraParams: extraParams];
+- (void)open:(NSString *)url animated:(BOOL)animated extraParams:(NSDictionary *)extraParams delegateObject:(id)delegateObject {
+    RouterParams *params = [self routerParamsForUrl:url extraParams:extraParams];
     UPRouterOptions *options = params.routerOptions;
     
     if (options.callback) {
@@ -338,7 +363,6 @@
     
     // 置为nil，防止强应用，导致ViewController不能释放
     self.navigationController = nil;
-    
 } // end
 
 - (NSDictionary*)paramsOfUrl:(NSString*)url {
@@ -353,7 +377,7 @@
     else {
         [self.navigationController popViewControllerAnimated:animated];
     }
-    // 置为nil，防止强应用，导致ViewController不能释放
+    // 置为nil，防止强引用，导致ViewController不能释放
     self.navigationController = nil;
 }
 - (void)pop {
@@ -395,6 +419,7 @@
              
              NSDictionary *givenParams = [self paramsForUrlComponents:givenParts routerUrlComponents:routerParts];
              if (givenParams) {
+//                 openParams = [[RouterParams alloc] initWithRouterOptions:routerOptions openParams:givenParams extraParams: extraParams];
                  openParams = [[RouterParams alloc] initWithRouterOptions:routerOptions openParams:givenParams extraParams: extraParams];
                  *stop = YES;
              }
@@ -414,7 +439,7 @@
 }
 
 - (RouterParams *)routerParamsForUrl:(NSString *)url {
-    return [self routerParamsForUrl:url extraParams: nil];
+    return [self routerParamsForUrl:url extraParams:nil];
 }
 
 - (NSDictionary *)paramsForUrlComponents:(NSArray *)givenUrlComponents
@@ -442,24 +467,37 @@
     SEL CONTROLLER_SELECTOR = sel_registerName("initWithRouterParams:");
     UIViewController *controller = nil;
     Class controllerClass = params.routerOptions.openClass;
+    if (!params.routerOptions.storyboard) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    if ([controllerClass respondsToSelector:CONTROLLER_CLASS_SELECTOR]) {
-        controller = [controllerClass performSelector:CONTROLLER_CLASS_SELECTOR withObject:[params controllerParams]];
-    }
-    else if ([params.routerOptions.openClass instancesRespondToSelector:CONTROLLER_SELECTOR]) {
-        controller = [[params.routerOptions.openClass alloc] performSelector:CONTROLLER_SELECTOR withObject:[params controllerParams]];
-    }
+        if ([controllerClass respondsToSelector:CONTROLLER_CLASS_SELECTOR]) {
+            controller = [controllerClass performSelector:CONTROLLER_CLASS_SELECTOR withObject:[params controllerParams]];
+        }
+        else if ([params.routerOptions.openClass instancesRespondToSelector:CONTROLLER_SELECTOR]) {
+            controller = [[params.routerOptions.openClass alloc] performSelector:CONTROLLER_SELECTOR withObject:[params controllerParams]];
+        }
 #pragma clang diagnostic pop
+    } else {
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:params.routerOptions.storyboard bundle:nil];
+        controller = [mainStoryBoard instantiateViewControllerWithIdentifier:NSStringFromClass(controllerClass)];
+    }
     if (!controller) {
         if (_ignoresExceptions) {
             return controller;
         }
+        /*
+            如果ViewController没有实现initWithRouterParams:和allocWithRouterParams:
+            那么使用alloc init创建控制器，不抛出异常
+        */
+        controller = [[params.routerOptions.openClass alloc] init];
+#if 0
         @throw [NSException exceptionWithName:@"RoutableInitializerNotFound"
                                        reason:[NSString stringWithFormat:INVALID_CONTROLLER_FORMAT, NSStringFromClass(controllerClass), NSStringFromSelector(CONTROLLER_CLASS_SELECTOR),  NSStringFromSelector(CONTROLLER_SELECTOR)]
                                      userInfo:nil];
+#endif
     }
-    
+    // storyboard不能通过initWithRouterParams:方法传参，只能通过这个了
+    controller.routerParams = [params controllerParams];
     controller.modalTransitionStyle = params.routerOptions.transitionStyle;
     controller.modalPresentationStyle = params.routerOptions.presentationStyle;
     return controller;
@@ -469,7 +507,7 @@
 - (UINavigationController *)navigationController {
     if (!_navigationController) {
         // 处理navigationController
-        UIViewController *currentController = [UIViewController currentViewController];
+        UIViewController *currentController = [UIViewController jc_currentViewController];
         if ([currentController isKindOfClass:[UIViewController class]]) {
             if (currentController.navigationController) {
                 _navigationController = currentController.navigationController;

@@ -10,5 +10,12 @@
 	<string>ThirdViewController</string>
 	<key>JCLoginViewControllerMapKey</key>
 	<string>JCLoginViewController</string>
+	<key>HomeStoryboard</key>
+	<dict>
+		<key>HomeStoryboardMapKey</key>
+		<string>home</string>
+		<key>FourthViewControllerMapKey</key>
+		<string>FourthViewController</string>
+	</dict>
 </dict>
 </plist>
