@@ -42,7 +42,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     [Routable jc_mapViewControllerToConfigurePlistFile:plistPath];
     ```
     其中RoutableConfigure.plist是控制器URL的映射表：
-    ![](https://github.com/chenjiangchuan/JCRoutable/raw/master/image/urlmaptable.png)
+    ![](https://github.com/chenjiangchuan/JCRoutable/raw/master/image/urlmaptable.jpg)
     
     1. 普通方式创建的ViewController：key为map的参数，value为控制器的类名；
     2. 通过storyboard创建的控制器，需要而外的字典描述：
