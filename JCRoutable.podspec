@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JCRoutable'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'Development based Routable.'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
