@@ -10,9 +10,8 @@
 #import "TabBarController.h"
 #import "JCLoginViewController.h"
 #import "Routable.h"
-#import "Aspects.h"
 #import <objc/runtime.h>
-//#import <objc/UIKit.h>
+#import "FourthViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +26,7 @@
     // 1
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"RoutableConfigure" ofType:@"plist"];
     [Routable jc_mapViewControllerToConfigurePlistFile:plistPath];
+//    [[Routable sharedRouter] map:@"FourthViewControllerMapKey" toController:[FourthViewController class] withOptions:nil];
     
     // 2
     BOOL alreadyLogged = [[NSUserDefaults standardUserDefaults] boolForKey:@"kAlreadyLogged"];
@@ -38,14 +38,8 @@
         self.window.rootViewController = nc;
     }
     [self.window makeKeyAndVisible];
-    [self aspectsSwapper];
     
     return YES;
-}
-
-- (void)aspectsSwapper {
-//    [UIClassSwapper aspect_hookSelector];
-//    NSLog(@"%@", NSStringFromClass([UIClassSwapper Class]));
 }
 
 @end

@@ -22,7 +22,6 @@
 @implementation ViewController
 
 #pragma mark - Routable Init
-
 - (id)initWithRouterParams:(NSDictionary *)params {
     if ((self = [self initWithNibName:nil bundle:nil])) {
         NSLog(@"%s, params = %@", __FUNCTION__, params);
@@ -31,26 +30,20 @@
 }
 
 #pragma mark - Life Cycle
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
-    self.navigationItem.title = @"第一个控制器";
-
     [self.view setBackgroundColor:[UIColor orangeColor]];
     [self.view addSubview:self.jcView];
-    self.jcView.frame = CGRectMake(50, 100, 300, 50);
+    self.jcView.frame = CGRectMake(50, 100, 300, 100);
 }
 
 #pragma mark - ReverseValueProtocol
-
 - (void)jc_reverseValue:(id)value {
     NSLog(@"%s:%@", __FUNCTION__, value);
 }
 
 #pragma mark - Lazy Initialze
-
 - (JCView *)jcView {
     if (_jcView == nil) {
         _jcView = [[JCView alloc] init];

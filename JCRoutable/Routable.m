@@ -365,6 +365,62 @@
     self.navigationController = nil;
 } // end
 
+- (void)open:(NSString *)url animated:(BOOL)animated extraParams:(NSDictionary *)extraParams toCallback:(RouterOpenCallback)callback {
+    RouterParams *params = [self routerParamsForUrl:url extraParams:extraParams];
+    UPRouterOptions *options = params.routerOptions;
+    
+    if (options.callback) {
+        RouterOpenCallback callback = options.callback;
+        callback([params controllerParams]);
+        return;
+    }
+    
+    if (!self.navigationController) {
+        if (_ignoresExceptions) {
+            return;
+        }
+        
+        @throw [NSException exceptionWithName:@"NavigationControllerNotProvided"
+                                       reason:@"Router#navigationController has not been set to a UINavigationController instance"
+                                     userInfo:nil];
+    }
+    
+    UIViewController *controller = [self controllerForRouterParams:params];
+    
+    if (callback) {
+        controller.callBack = callback;
+    }
+    
+    if (self.navigationController.presentedViewController) {
+        [self.navigationController dismissViewControllerAnimated:animated completion:nil];
+    }
+    
+    if ([options isModal]) {
+        if ([controller.class isSubclassOfClass:UINavigationController.class]) {
+            [self.navigationController presentViewController:controller
+                                                    animated:animated
+                                                  completion:nil];
+        }
+        else {
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+            navigationController.modalPresentationStyle = controller.modalPresentationStyle;
+            navigationController.modalTransitionStyle = controller.modalTransitionStyle;
+            [self.navigationController presentViewController:navigationController
+                                                    animated:animated
+                                                  completion:nil];
+        }
+    }
+    else if (options.shouldOpenAsRootViewController) {
+        [self.navigationController setViewControllers:@[controller] animated:animated];
+    }
+    else {
+        [self.navigationController pushViewController:controller animated:animated];
+    }
+    
+    // 置为nil，防止强应用，导致ViewController不能释放
+    self.navigationController = nil;
+}
+
 - (NSDictionary*)paramsOfUrl:(NSString*)url {
     return [[self routerParamsForUrl:url] controllerParams];
 }

@@ -16,6 +16,7 @@
 
 @implementation TabBarController
 
+#pragma mark - Routable Init
 - (id)initWithRouterParams:(NSDictionary *)params {
     if ((self = [self initWithNibName:nil bundle:nil])) {
         NSLog(@"%s, %@", __FUNCTION__, params[@"title"]);
@@ -23,6 +24,8 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     

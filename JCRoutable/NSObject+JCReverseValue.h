@@ -1,17 +1,19 @@
 //
 //  NSObject+JCReverseValue.h
-//  RoutableDemo
 //
 //  Created by chenjiangchuan on 2017/6/7.
-//  Copyright © 2017年 chenjiangchuan. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "JCReverseValueProtocol.h"
 
+typedef void (^JCOpenCallback)(NSDictionary *params);
+
 @interface NSObject (JCReverseValue) <JCReverseValueProtocol>
 
 /** ReverseValueProtocol */
 @property (weak, nonatomic) id<JCReverseValueProtocol> JCReverseValueDelegate;
+/** CallBack */
+@property (copy, nonatomic) JCOpenCallback callBack;
 
 @end

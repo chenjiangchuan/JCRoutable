@@ -1,9 +1,7 @@
 //
 //  UIViewController+JCRouterParams.m
-//  JCRoutableExample
 //
 //  Created by 陈江川 on 2019/4/26.
-//  Copyright © 2019 chenjiangchuan. All rights reserved.
 //
 
 #import "UIViewController+JCRouterParams.h"

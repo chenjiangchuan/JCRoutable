@@ -17,5 +17,7 @@
 		<key>FourthViewControllerMapKey</key>
 		<string>FourthViewController</string>
 	</dict>
+	<key>FifthViewControllerMapKey</key>
+	<string>FifthViewController</string>
 </dict>
 </plist>

@@ -1,15 +1,14 @@
 //
 //  NSObject+JCReverseValue.m
-//  RoutableDemo
 //
 //  Created by chenjiangchuan on 2017/6/7.
-//  Copyright © 2017年 chenjiangchuan. All rights reserved.
 //
 
 #import "NSObject+JCReverseValue.h"
 #import <objc/runtime.h>
 
 const static void *JCReverseValueDelegateKey = &JCReverseValueDelegateKey;
+const static void *JCOpenCallbackKey = &JCOpenCallbackKey;
 
 @implementation NSObject (JCReverseValue)
 
@@ -19,6 +18,14 @@ const static void *JCReverseValueDelegateKey = &JCReverseValueDelegateKey;
 
 - (void)setJCReverseValueDelegate:(id<JCReverseValueProtocol>)JCReverseValueDelegate {
     objc_setAssociatedObject(self, JCReverseValueDelegateKey, JCReverseValueDelegate, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (JCOpenCallback)callBack {
+    return objc_getAssociatedObject(self, JCOpenCallbackKey);
+}
+
+- (void)setCallBack:(JCOpenCallback)callBack {
+    objc_setAssociatedObject(self, JCOpenCallbackKey, callBack, OBJC_ASSOCIATION_COPY);
 }
 
 @end

@@ -1,9 +1,7 @@
 //
 //  UIViewController+JCUnRegister.m
-//  AppFrameworkDemo
 //
 //  Created by chenjiangchuan on 2017/6/21.
-//  Copyright © 2017年 Hori-GZ. All rights reserved.
 //
 
 #import "UIViewController+JCUnRegister.h"

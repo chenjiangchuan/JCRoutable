@@ -16,7 +16,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     [[Routable sharedRouter] map:@"users" toController:[UserController class]];
     ```
 
-2. 在你的viewController中实现*initWithRouterParams:*方法
+1. 在你的viewController中实现*- initWithRouterParams:*或者*+ allocWithRouterParams:*方法
 
     ```
     - (id)initWithRouterParams:(NSDictionary *)params {
@@ -24,6 +24,18 @@ To run the example project, clone the repo, and run `pod install` from the Examp
             self.userId = [params objectForKey:@"id"];
         }
         return self;
+    }
+    ```
+    
+    ```
+    // 可用于从storyboard创建的控制器
+    + (id)allocWithRouterParams:(NSDictionary *)params {
+        UIStoryboard *storyboard = [UIStoryboard 
+                                    storyboardWithName:@"home" 
+                                    bundle:nil];
+        FourthViewController *instance =
+            [storyboard instantiateViewControllerWithIdentifier:@"FourthViewController"];
+        return instance;
     }
     ```
     
@@ -35,7 +47,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### 添加的格外功能
 
-1. 添加一个批量设置控制器URL的方法，你只需要传入对应的plist配置文件路径，新版增加了从storyboard创建控制器的支持：
+1. 添加一个`批量注册路由`的方法，只需要传入对应的plist配置文件路径，新版增加了对`从storyboard创建控制器`的支持：
 
     ```
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"RoutableConfigure.plist" ofType:nil];
@@ -148,7 +160,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     ```
 
 4. 逆向传值
-
+    
+    4.1 delegate
+    
     添加了NSObject+ReverseValue分类，然后在该分类中添加遵守JCReverseValueProtocol协议的属性，只要*#import "Routable.h"*即可。
 
     ```
@@ -167,7 +181,26 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     ```
     // ViewController2
     if ([self.JCReverseValueDelegate respondsToSelector:@selector(jc_reverseValue:)]) {
-        [self.JCReverseValueDelegate jc_reverseValue:@"come from ViewController2"];
+        [self.JCReverseValueDelegate jc_reverseValue:@"（delegate）come from ViewController2"];
+    }
+    ```
+    
+    4.2 block
+    
+    ```
+    // ViewController1
+    [[Routable sharedRouter] open:@"ViewController2"
+                         animated:YES
+                      extraParams:@{@"title" : @"come from ViewController1"}
+                       toCallback:^(NSDictionary *params) {
+                           NSLog(@"%s:%@", __FUNCTION__, params);
+                       }];
+    ```
+    
+    ```
+    // ViewController2
+    if (self.callBack) {
+        self.callBack(@{@"params" : @"(block) come from ThirdViewController"});
     }
     ```
 
@@ -177,7 +210,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
     // 参数为登录界面控制器的类名
     [Routable jc_unRegisterAccountToLoginViewController:@"LoginViewController"];
     ```
+    
 
+> 1、逆向传值用法参见demo中的`JCView`和`ThirdViewController`；
+> 2、从storyboard创建控制器的路由注册有两种方式，参见`FourthViewController`和`FifthViewController`，以及`RoutableConfigure.plist`。
 
 ## Installation
 

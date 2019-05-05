@@ -1,9 +1,7 @@
 //
 //  UIViewController+JCUtils.m
-//  SmartCommunity
 //
 //  Created by chenjiangchuan on 2017/5/17.
-//  Copyright © 2017年 Horizontal. All rights reserved.
 //
 
 #import "UIViewController+JCUtils.h"
