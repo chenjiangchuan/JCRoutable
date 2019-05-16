@@ -425,6 +425,10 @@
     return [[self routerParamsForUrl:url] controllerParams];
 }
 
+- (UIViewController *)viewControllerOfUrl:(NSString *)url {
+    return [self controllerForRouterParams:[self routerParamsForUrl:url]];
+}
+
 //Stack operations
 - (void)popViewControllerFromRouterAnimated:(BOOL)animated {
     if (self.navigationController.presentedViewController) {

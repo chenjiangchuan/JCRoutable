@@ -363,6 +363,14 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  */
 - (NSDictionary*)paramsOfUrl:(NSString*)url;
 
+/**
+ 根据URL创建映射字典中对应的控制器
+
+ @param url URL
+ @return 控制器
+ */
+- (UIViewController *)viewControllerOfUrl:(NSString *)url;
+
 @end
 
 
