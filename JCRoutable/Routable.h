@@ -252,6 +252,8 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  The `UINavigationController` instance which mapped `UIViewController`s will be pushed onto.
  */
 @property (readwrite, nonatomic, strong) UINavigationController *navigationController;
+/** 将要跳转到的控制器 */
+@property (weak, nonatomic, readonly) UIViewController *presentedViewController;
 
 /**
  Pop to the last `UIViewController` mapped with the router; this will either dismiss the presented `UIViewController` (i.e. modal) or pop the top view controller in the navigationController. The transition is animated.
@@ -370,6 +372,14 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  @return 控制器
  */
 - (UIViewController *)viewControllerOfUrl:(NSString *)url;
+
+/**
+ 通过ViewController的类名获取映射表中对应的URL
+
+ @param viewControllerClass 类
+ @return 对应的URL
+ */
+- (NSString *)urlOfViewControllerClass:(Class)viewControllerClass;
 
 @end
 

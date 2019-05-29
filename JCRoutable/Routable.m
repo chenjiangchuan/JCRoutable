@@ -328,6 +328,7 @@
     }
     
     UIViewController *controller = [self controllerForRouterParams:params];
+    _presentedViewController = controller;
     
     // add by cjc
     if (delegateObject &&
@@ -427,6 +428,21 @@
 
 - (UIViewController *)viewControllerOfUrl:(NSString *)url {
     return [self controllerForRouterParams:[self routerParamsForUrl:url]];
+}
+
+- (NSString *)urlOfViewControllerClass:(Class)viewControllerClass {
+    __block NSString *url = nil;
+    [self.routes enumerateKeysAndObjectsUsingBlock:
+     ^(NSString *routerUrl, UPRouterOptions *routerOptions, BOOL *stop) {
+         if ([routerOptions.openClass isEqual:viewControllerClass]) {
+             url = [NSString stringWithFormat:@"%@", routerUrl];
+#if DEBUG
+             NSLog(@"%s, url = %@", __func__, url);
+#endif
+             *stop = YES;
+         }
+     }];
+    return url;
 }
 
 //Stack operations
