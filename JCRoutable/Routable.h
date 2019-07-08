@@ -309,6 +309,7 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  */
 - (void)map:(NSString *)format toController:(Class)controllerClass withOptions:(UPRouterOptions *)options;
 - (void)map:(NSString *)format storyboard:(NSString *)storyboard toController:(Class)controllerClass;
+- (void)map:(NSString *)format storyboard:(NSString *)storyboard orXib:(NSString *)xib toController:(Class)controllerClass;
 
 ///-------------------------------
 /// @name Opening URLs

@@ -29,6 +29,8 @@
 		D6D728B71F356631000B9126 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D728B51F356631000B9126 /* LaunchScreen.storyboard */; };
 		D6D728C21F356631000B9126 /* JCRoutableExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728C11F356631000B9126 /* JCRoutableExampleTests.m */; };
 		D6D728CD1F356631000B9126 /* JCRoutableExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D728CC1F356631000B9126 /* JCRoutableExampleUITests.m */; };
+		D6DD9EF722D2E0BC00DB395A /* SixthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DD9EF622D2E0BC00DB395A /* SixthViewController.m */; };
+		D6DD9EFB22D2E8B700DB395A /* Sixt.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6DD9EFA22D2E8B700DB395A /* Sixt.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,9 @@
 		D6D728C81F356631000B9126 /* JCRoutableExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JCRoutableExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D728CC1F356631000B9126 /* JCRoutableExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCRoutableExampleUITests.m; sourceTree = "<group>"; };
 		D6D728CE1F356631000B9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6DD9EF522D2E0BC00DB395A /* SixthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SixthViewController.h; sourceTree = "<group>"; };
+		D6DD9EF622D2E0BC00DB395A /* SixthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SixthViewController.m; sourceTree = "<group>"; };
+		D6DD9EFA22D2E8B700DB395A /* Sixt.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Sixt.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +135,7 @@
 				D605E0D2227E87EA00B19700 /* Second */,
 				D605E0CF227E87EA00B19700 /* Third */,
 				D605E0DF227E87EA00B19700 /* FourthAndFifth */,
+				D6DD9EF422D2E06D00DB395A /* sixth */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -282,6 +288,16 @@
 			path = JCRoutableExampleUITests;
 			sourceTree = "<group>";
 		};
+		D6DD9EF422D2E06D00DB395A /* sixth */ = {
+			isa = PBXGroup;
+			children = (
+				D6DD9EF522D2E0BC00DB395A /* SixthViewController.h */,
+				D6DD9EF622D2E0BC00DB395A /* SixthViewController.m */,
+				D6DD9EFA22D2E8B700DB395A /* Sixt.xib */,
+			);
+			path = sixth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -393,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D605E0F2227E87EA00B19700 /* home.storyboard in Resources */,
+				D6DD9EFB22D2E8B700DB395A /* Sixt.xib in Resources */,
 				D6D728B71F356631000B9126 /* LaunchScreen.storyboard in Resources */,
 				D605E0F5227E87EA00B19700 /* JCLoginViewController.xib in Resources */,
 				D605E0EE227E87EA00B19700 /* RoutableConfigure.plist in Resources */,
@@ -436,6 +453,7 @@
 				D65D536D1F35673200E273AD /* UIViewController+JCUnRegister.m in Sources */,
 				D605E0EF227E87EA00B19700 /* main.m in Sources */,
 				D605E0F3227E87EA00B19700 /* FifthViewController.m in Sources */,
+				D6DD9EF722D2E0BC00DB395A /* SixthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
