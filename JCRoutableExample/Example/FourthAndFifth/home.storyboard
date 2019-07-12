@@ -32,13 +32,23 @@
                     <view key="view" contentMode="scaleToFill" id="eHU-pm-Hlp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldI-Tc-4E0">
+                                <rect key="frame" x="138" y="292" width="138" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="跳转到第六个控制器"/>
+                                <connections>
+                                    <action selector="buttonAction:" destination="2z9-iS-uGG" eventType="touchUpInside" id="tPt-iq-vl4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="2hT-bw-HFR"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvS-na-IZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="-7"/>
+            <point key="canvasLocation" x="843.47826086956525" y="-7.3660714285714279"/>
         </scene>
     </scenes>
 </document>

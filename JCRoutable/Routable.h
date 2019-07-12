@@ -309,6 +309,7 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  */
 - (void)map:(NSString *)format toController:(Class)controllerClass withOptions:(UPRouterOptions *)options;
 - (void)map:(NSString *)format storyboard:(NSString *)storyboard toController:(Class)controllerClass;
+- (void)map:(NSString *)format storyboard:(NSString *)storyboard orXib:(NSString *)xib toController:(Class)controllerClass;
 
 ///-------------------------------
 /// @name Opening URLs
@@ -419,5 +420,14 @@ typedef void (^RouterOpenCallback)(NSDictionary *params);
  *  @param configurePlistFilePath 映射的plist文件
  */
 + (void)jc_mapViewControllerToConfigurePlistFile:(NSString *)configurePlistFilePath;
+
+/**
+ 自动映射ViewController
+
+ @param configure 映射的字典
+ @param storyboard 字典第一层级中storyboard名字，没有传nil
+ @param xib 字典第一层级中xib名字，没有传nil
+ */
++ (void)jc_mapViewControllerToDictionary:(NSDictionary *)configure storyboard:(NSString *)storyboard xib:(NSString *)xib;
 
 @end

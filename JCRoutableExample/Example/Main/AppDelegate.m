@@ -23,6 +23,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
+    NSString *str1 = @"xxxStoryboard";
+    
+    NSRange rang = [str1 rangeOfString:@"Storyboard" options:NSCaseInsensitiveSearch];
+    
+    if (rang.location != NSNotFound) {
+        NSLog(@"rang包含storyboard");
+    }
+    
+    if ([str1 containsString:@"Storyboard"]) {
+        NSLog(@"包含Storyboard");
+    }
+    
+    if ([str1 containsString:@"storyboard"]) {
+        NSLog(@"包含storyboard");
+    }
+    
     // 1
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"RoutableConfigure" ofType:@"plist"];
     [Routable jc_mapViewControllerToConfigurePlistFile:plistPath];

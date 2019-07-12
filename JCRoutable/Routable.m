@@ -25,6 +25,7 @@
 
 #import "Routable.h"
 #import "UIViewController+JCUnRegister.h"
+#import <objc/message.h>
 
 @implementation Routable
 
@@ -54,24 +55,34 @@
 
 + (void)jc_mapViewControllerToConfigurePlistFile:(NSString *)configurePlistFilePath; {
     NSMutableDictionary *configure = [[NSMutableDictionary alloc] initWithContentsOfFile:configurePlistFilePath];
-    [self jc_mapViewControllerToDictionary:configure storyboard:nil];
+    [self jc_mapViewControllerToDictionary:configure storyboard:nil xib:nil];
 }
 
-+ (void)jc_mapViewControllerToDictionary:(NSDictionary *)configure storyboard:(NSString *)storyboard {
++ (void)jc_mapViewControllerToDictionary:(NSDictionary *)configure storyboard:(NSString *)storyboard xib:(NSString *)xib {
     if (configure && configure.count > 0) {
         NSArray *routableKey = [configure allKeys];
         for (NSUInteger index = 0; index < configure.count; index++) {
             if ([configure[routableKey[index]] isKindOfClass:[NSString class]]) {
-                [[Routable sharedRouter] map:routableKey[index] storyboard:storyboard toController:NSClassFromString(configure[routableKey[index]])];
+                [[Routable sharedRouter] map:routableKey[index] storyboard:storyboard orXib:xib toController:NSClassFromString(configure[routableKey[index]])];
             } else if ([configure[routableKey[index]] isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *storyboard = configure[routableKey[index]];
                 __block NSString *storyboardName = nil;
+                __block NSString *xibName = nil;
                 NSMutableDictionary *otherVC = [NSMutableDictionary dictionary];
                 [storyboard enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL * _Nonnull stop) {
-                    if ([key containsString:@"Storyboard"]) storyboardName = obj;
-                    else [otherVC setObject:obj forKey:key];
+                    NSRange rang = [key rangeOfString:@"storyboard" options:NSCaseInsensitiveSearch];
+                    if (rang.location != NSNotFound) {
+                        storyboardName = obj;
+                    } else {
+                        rang = [key rangeOfString:@"xib" options:NSCaseInsensitiveSearch];
+                        if (rang.location != NSNotFound) {
+                            xibName = obj;
+                        } else {
+                            [otherVC setObject:obj forKey:key];
+                        }
+                    }
                 }];
-                [self jc_mapViewControllerToDictionary:otherVC storyboard:storyboardName];
+                [self jc_mapViewControllerToDictionary:otherVC storyboard:storyboardName xib:xibName];
             }
         }
     }
@@ -113,6 +124,7 @@
 
 @property (readwrite, nonatomic, strong) Class openClass;
 @property (readwrite, nonatomic, strong) NSString *storyboard;
+@property (readwrite, nonatomic, strong) NSString *xib;
 @property (readwrite, nonatomic, copy) RouterOpenCallback callback;
 @end
 
@@ -265,14 +277,18 @@
 }
 
 - (void)map:(NSString *)format storyboard:(NSString *)storyboard toController:(Class)controllerClass {
-    [self map:format storyboard:storyboard toController:controllerClass withOptions:nil];
+    [self map:format storyboard:storyboard orXib:nil toController:controllerClass withOptions:nil];
+}
+
+- (void)map:(NSString *)format storyboard:(NSString *)storyboard orXib:(NSString *)xib toController:(Class)controllerClass {
+    [self map:format storyboard:storyboard orXib:xib toController:controllerClass withOptions:nil];
 }
 
 - (void)map:(NSString *)format toController:(Class)controllerClass withOptions:(UPRouterOptions *)options {
-    [self map:format storyboard:nil toController:controllerClass withOptions:options];
+    [self map:format storyboard:nil orXib:nil toController:controllerClass withOptions:options];
 }
 
-- (void)map:(NSString *)format storyboard:(NSString *)storyboard toController:(Class)controllerClass withOptions:(UPRouterOptions *)options {
+- (void)map:(NSString *)format storyboard:(NSString *)storyboard orXib:(NSString *)xib toController:(Class)controllerClass withOptions:(UPRouterOptions *)options {
     if (!format) {
         @throw [NSException exceptionWithName:@"RouteNotProvided"
                                        reason:@"Route #format is not initialized"
@@ -284,6 +300,7 @@
     }
     options.openClass = controllerClass;
     options.storyboard = storyboard;
+    options.xib = xib;
     [self.routes setObject:options forKey:format];
 }
 
@@ -543,7 +560,14 @@
     SEL CONTROLLER_SELECTOR = sel_registerName("initWithRouterParams:");
     UIViewController *controller = nil;
     Class controllerClass = params.routerOptions.openClass;
-    if (!params.routerOptions.storyboard) {
+    
+    if (params.routerOptions.storyboard != nil) {
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:params.routerOptions.storyboard bundle:nil];
+        controller = [mainStoryBoard instantiateViewControllerWithIdentifier:NSStringFromClass(controllerClass)];
+    } else if (params.routerOptions.xib != nil) {
+       controller = ((id (*)(id, SEL, NSString*, NSString*))objc_msgSend)([params.routerOptions.openClass alloc], @selector(initWithNibName:bundle:), params.routerOptions.xib, nil);
+        
+    } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         if ([controllerClass respondsToSelector:CONTROLLER_CLASS_SELECTOR]) {
@@ -553,10 +577,8 @@
             controller = [[params.routerOptions.openClass alloc] performSelector:CONTROLLER_SELECTOR withObject:[params controllerParams]];
         }
 #pragma clang diagnostic pop
-    } else {
-        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:params.routerOptions.storyboard bundle:nil];
-        controller = [mainStoryBoard instantiateViewControllerWithIdentifier:NSStringFromClass(controllerClass)];
     }
+    
     if (!controller) {
         if (_ignoresExceptions) {
             return controller;

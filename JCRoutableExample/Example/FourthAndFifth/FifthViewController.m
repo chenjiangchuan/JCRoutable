@@ -7,6 +7,8 @@
 //
 
 #import "FifthViewController.h"
+#import "Routable.h"
+#import "ViewControllersMapKey.h"
 
 @interface FifthViewController ()
 
@@ -30,5 +32,14 @@
     [super viewDidLoad];
 }
 
+#pragma mark -
+#pragma mark - Event Response
+
+- (IBAction)buttonAction:(UIButton *)sender {
+    [[Routable sharedRouter] open:SixthViewControllerMapKey animated:YES];
+//    UIViewController *vc = [[UIViewController alloc] initWithNibName:@"SixthViewController" bundle:nil];
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    [[Routable sharedRouter].navigationController pushViewController:vc animated:YES];
+}
 
 @end

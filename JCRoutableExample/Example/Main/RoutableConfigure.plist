@@ -19,5 +19,12 @@
 	</dict>
 	<key>FifthViewControllerMapKey</key>
 	<string>FifthViewController</string>
+	<key>SixtXib</key>
+	<dict>
+		<key>SixtXibMapKey</key>
+		<string>Sixt</string>
+		<key>SixthViewControllerMapKey</key>
+		<string>SixthViewController</string>
+	</dict>
 </dict>
 </plist>
